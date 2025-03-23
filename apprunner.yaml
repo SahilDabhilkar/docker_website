@@ -1,0 +1,15 @@
+version: 1.0
+runtime: docker
+image:
+  uri: public.ecr.aws/nginx/nginx:latest  # Using the official Nginx image
+  port: 80
+instanceConfiguration:
+  cpu: 1 vCPU
+  memory: 2 GB
+  instanceRoleArn: ""  # (Optional) Add an IAM role ARN if needed
+service:
+  name: nginx-apprunner
+  autoDeploymentsEnabled: true
+  healthCheck:
+    path: "/"
+    protocol: HTTP
